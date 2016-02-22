@@ -6,7 +6,7 @@ use yii\web\AssetBundle;
 
 class BootstrapMaterialDatetimePickerAsset extends AssetBundle
 {
-    public $sourcePath = '@bower/bootstrap-material-datetimepicker';
+    public $sourcePath = '@vendor/e-frank/bootstrap-material-datetime-picker/assets';
     
     public $css = [
         'css/bootstrap-material-datetimepicker.css',

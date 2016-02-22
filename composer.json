@@ -11,9 +11,8 @@
         }
     ],
     "require": {
-        "yiisoft/yii2":                                  "*",
-        "bower-asset/bootstrap-material-datetimepicker": "*",
-        "e-frank/yii2-moment":                           "*"
+        "yiisoft/yii2":        "*",
+        "e-frank/yii2-moment": "*"
     },
     "autoload": {
         "psr-4": { "x1\\assets\\BootstrapMaterialDatetimePicker\\": "" }
