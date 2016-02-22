@@ -1,0 +1,21 @@
+{
+    "name":        "e-frank/yii2-bootstrap-material-datetime-picker",
+    "description": "AssetBundle for bootstrap-material-datetimepicker",
+    "keywords":    ["yii2", "javascript", "bootstrap-material-datetimepicker", "bootstrap", "material", "date", "time", "picker", "datepicker", "datetimepicker", "momentjs"],
+    "type":        "yii2-extension",
+    "license":     "BSD-3-Clause",
+    "authors": [
+        {
+            "name":     "Elmar Frank",
+            "homepage": "http://yii.efrank.at/extensions/bootstrap-material-datetime-picker"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2":                                  "*",
+        "bower-asset/bootstrap-material-datetimepicker": "*",
+        "e-frank/yii2-moment":                           "*"
+    },
+    "autoload": {
+        "psr-4": { "x1\\assets\\BootstrapMaterialDatetimePicker\\": "" }
+    }
+}
