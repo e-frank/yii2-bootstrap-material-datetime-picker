@@ -3,7 +3,7 @@
    var pluginName = "bootstrapMaterialDatePicker";
    var pluginDataName = "plugin_" + pluginName;
 
-   moment.locale('en');
+   // moment.locale('en');
 
    function Plugin(element, options)
    {
@@ -18,13 +18,35 @@
       this.$element = $(element);
 
 
-      this.params = {date: true, time: true, format: 'YYYY-MM-DD', minDate: null, maxDate: null, currentDate: null, lang: 'en', weekStart: 0, disabledDays: [], shortTime: false, clearButton: false, nowButton: false, cancelText: 'Cancel', okText: 'OK', clearText: 'Clear', nowText: 'Now', switchOnClick: false, triggerEvent: 'focus', monthPicker: false, year:true};
+      this.params = {date: true,
+        time:          true,
+        format:        'YYYY-MM-DD',
+        minDate:       null,
+        maxDate:       null,
+        currentDate:   null,
+        lang:          'en',
+        disabledDays:  [],
+        shortTime:     false,
+        clearButton:   false,
+        nowButton:     false,
+        cancelText:    'Cancel',
+        okText:        'OK',
+        clearText:     'Clear',
+        nowText:       'Now',
+        switchOnClick: false,
+        triggerEvent:  'focus',
+        monthPicker:   false,
+        year:          true,
+        autoOpen:      true
+      };
+
       this.params = $.fn.extend(this.params, options);
 
       this.name = "dtp_" + this.setName();
       this.$element.attr("data-dtp", this.name);
 
       moment.locale(this.params.lang);
+      this.params.weekStart = this.params.weekStart || moment.localeData().firstDayOfWeek();
 
       this.init();
    }
@@ -66,7 +88,9 @@
                  this._attachEvent(this.$dtpElement.find('.dtp-content'), 'click', this._onElementClick.bind(this));
                  this._attachEvent(this.$dtpElement, 'click', this._onBackgroundClick.bind(this));
                  this._attachEvent(this.$dtpElement.find('.dtp-close > a'), 'click', this._onCloseClick.bind(this));
-                 this._attachEvent(this.$element, this.params.triggerEvent, this._fireCalendar.bind(this));
+                 if (this.params.autoOpen) {
+                   this._attachEvent(this.$element, this.params.triggerEvent, this._fireCalendar.bind(this));
+                 }
               },
               initDays: function ()
               {
