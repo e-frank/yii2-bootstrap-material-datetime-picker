@@ -1,5 +1,5 @@
 # bootstrap-material-datetimepicker
-Material DateTimePicker 
+Material DateTimePicker
 
 Originaly designed for Bootstrap Material, the V2.0 is now completely standalone and responsive.
 
@@ -7,6 +7,9 @@ Originaly designed for Bootstrap Material, the V2.0 is now completely standalone
 
 | Date				| Author			| Description											 |
 | ----------------- | ----------------- | ------------------------------------------------------ |
+| 2016-04-08		| donovansolms		| Disable specific days (#60 and #97)				 	 |
+| 2016-04-08		| T00rk				| Fixed #85	 								 	 		 |
+| 2016-04-08		| FoxyCorndog		| Fix PM overwrite bug	 					 	 		 |
 | 2016-02-17		| T00rk				| Changed Clock to SVG	 					 	 		 |
 | 2016-02-04		| T00rk				| Added a "Now" button (#38)	 					 	 |
 | 2016-01-30		| T00rk				| Switch view on click (#39, #47)	 					 |
@@ -26,12 +29,12 @@ Originaly designed for Bootstrap Material, the V2.0 is now completely standalone
 | 2015-04-10		| Peterzen			| Added bower and requirejs support						 |
 | 2015-04-08		| T00rk				| Fixed problem on locale switch						 |
 | 2015-03-04		| T00rk				| Added Time picker										 |
-(\*) File names have been changed 
+(\*) File names have been changed
 
 bootstrap-material-datepicker.js => bootstrap-material-date**time**picker.js
 
 bootstrap-material-datepicker.css => bootstrap-material-date**time**picker.css
-	
+
 ### Prerequisites
 
 jquery [http://jquery.com/download/](http://jquery.com/download/)
@@ -52,7 +55,7 @@ Google Material Icon Font `<link href="https://fonts.googleapis.com/icon?family=
 ### bower
 
 	bower install bootstrap-material-datetimepicker
-	
+
 ### Parameters
 
 | Name				| Type							| Description									|
@@ -62,7 +65,9 @@ Google Material Icon Font `<link href="https://fonts.googleapis.com/icon?family=
 | **minDate**		| (String\|Date\|Moment)		| Minimum selectable date						|
 | **maxDate**		| (String\|Date\|Moment)		| Maximum selectable date						|
 | **currentDate**	| (String\|Date\|Moment)		| Initial Date									|
+| **year**			| Boolean						| true => Has Yearpicker						|
 | **date**			| Boolean						| true => Has Datepicker						|
+| **disabledDays**	| Array							| Array containing day indices (1-7) to disable	|
 | **time**			| Boolean						| true => Has Timepicker						|
 | **clearButton**	| Boolean						| true => Show Clear Button						|
 | **nowButton**		| Boolean						| true => Show Now Button						|
@@ -71,6 +76,9 @@ Google Material Icon Font `<link href="https://fonts.googleapis.com/icon?family=
 | **okText**		| String						| Text for the OK button (default: OK)			|
 | **clearText**		| String						| Text for the Clear button (default: Clear)	|
 | **nowText**		| String						| Text for the Now button (default: Now)		|
+| **triggerEvent**		| String						| Event to fire the calendar (default: focus)		|
+| **monthPicker**	| Boolean						| true => Act as monthpicker (hide calendar) (default: false) |
+
 
 
 ### Events
@@ -79,7 +87,10 @@ Google Material Icon Font `<link href="https://fonts.googleapis.com/icon?family=
 | ----------------- | ------------------------- | ------------------------------------------------- |
 | **beforeChange**	| event, date				| OK button is clicked								|
 | **change**		| event, date				| OK button is clicked and input value is changed	|
+| **yearSelected**	        | event, date			        | New year is selected								|
 | **dateSelected**	| event, date				| New date is selected								|
+| **open**	        | event				        | datepicker is opened								|
+| **close**	        | event				        | datepicker is closed								|
 
 
 ### Methods
@@ -92,5 +103,3 @@ Google Material Icon Font `<link href="https://fonts.googleapis.com/icon?family=
 | **setMinDate**	| (String\|Date\|Moment)	| Set minimum selectable date	|
 | **setMaxDate**	| (String\|Date\|Moment)	| Set maximum selectable date	|
 | **destroy**		| NULL						| Destroy the datepicker		|
-
-	
